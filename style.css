@@ -1,0 +1,770 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-track {
+    width: 4px;
+}
+
+body {
+    box-sizing: content-box;
+    background: #f5f5f5;
+    color: #000;
+}
+
+/* ------------------------------------------------ navbar  ------------------------------------------------------------  */
+.navbar {
+    height: 60px;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-height: 60px;
+    height: 60px;
+    background-color: #f5f5f5;
+    z-index: 99;
+    box-shadow: 0px 4px 4px #999;
+}
+
+nav .logo {
+    margin-left: 10px;
+    padding-left: 10px;
+    color: #000;
+}
+
+nav .logo a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-style: oblique;
+    letter-spacing: 2px;
+    text-shadow: 2px 0px 2px #3683f0;
+}
+
+nav .logo a span {
+    color: #3683f0;
+    text-shadow: 2px 0px 2px #fff;
+}
+
+nav .menulink {
+    margin-right: 10px;
+    padding-right: 10px;
+    height: 100%;
+}
+
+nav .menulink ul {
+    display: flex;
+    height: 100%;
+    list-style: none;
+    align-items: center;
+}
+
+nav .menulink ul li {
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 1.3rem;
+    color: #000;
+}
+
+nav .menulink ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #000;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+nav .menulink ul li:hover a::after {
+    width: 100%;
+}
+
+nav .menulink ul li a {
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+nav .menulink ul li:hover a {
+    text-shadow: 4px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===============================menubtn======================= ================= */
+.menubtn-box {
+    display: none;
+}
+
+.bar {
+    width: 80%;
+    max-width: 150px;
+    height: 5px;
+    margin: 2px;
+    border-radius: 10px;
+    background-color: #888df5;
+    transition: 0.5s;
+}
+
+.bar2 {
+    background-color: #333;
+    transition-delay: 0.5s;
+    transition: 2s !important;
+}
+
+.menubtn-box.active .bar1 {
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.menubtn-box.active .bar3 {
+    position: absolute;
+    transform: rotate(-45deg);
+}
+
+.menubtn-box.active .bar2 {
+    display: none;
+    visibility: hidden;
+    transition-delay: 1s;
+}
+
+/* =============== media query ======================= =================== */
+@media (max-width: 900px) {
+    .menubtn-box {
+        width: 40px;
+        height: 35px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        border: 1px solid;
+        border-radius: 10px;
+    }
+
+    nav .menulink ul.links {
+        display: none;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 100%;
+        background: #f5f5f5;
+        overflow: hidden;
+        animation: height2 5s ease;
+    }
+
+    nav .menulink ul.links.active {
+        display: block;
+        height: auto;
+        animation: height 1s ease;
+        right: 0;
+    }
+
+    nav .menulink ul li {
+        width: 100px;
+        margin: auto;
+    }
+}
+
+@keyframes height {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 230px;
+    }
+}
+
+/* ============================= header section  ================== ================== */
+.header {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 20px 70px;
+    place-items: center;
+    background: #fff;
+    background-image: url(img/banner1.png);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.header .header-content {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.header .header-img img {
+    width: 100%;
+}
+
+.h-btn {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.header .header-content h1 i {
+    padding-inline: 20px;
+    animation: hand-wave 2s infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+.header .header-content span a {
+    text-decoration: underline;
+    color: #3683f0;
+}
+
+@keyframes hand-wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-0.5deg);
+    }
+
+    50% {
+        transform: rotate(-14deg);
+    }
+
+    75% {
+        transform: rotate(-0.5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* ======= scroll animation ==================== ===================== ==========  */
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ==================== ===================== media query header ======================== ======================= */
+@media (max-width:900px) {
+    .header {
+        grid-template-columns: auto;
+        gap: 0;
+    }
+
+    .header .header-content {
+        padding: 40px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width:500px) {
+    .header .header-content h1 {
+        font-size: 30px;
+    }
+
+    .h-btn {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+}
+
+/* ====================================== btn ================== =============================== */
+.page-btn {
+    position: relative;
+    padding: 10px 20px;
+    color: #3683f0;
+}
+
+.page-btn::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #3683f0;
+    border-left: 2px solid #3683f0;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+
+.page-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #3683f0;
+    border-bottom: 2px solid #3683f0;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+
+.page-btn:hover::before,
+.page-btn:hover::after {
+    width: 100%;
+    height: 100%;
+    transition-delay: 0s;
+}
+
+.page-btn:hover {
+    background: #3683f0;
+    color: #fff;
+    box-shadow: 0 0 20px #3683f0;
+    transition-delay: 0.3s;
+    transition: 0.5s;
+    text-shadow: 4px 2px 10px #000;
+}
+
+/* ===================================main body============== 
+======================= */
+/* ===============about me ================================= ================= ======================== */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    text-align: center;
+}
+
+.aboutme {
+    padding: 20px;
+}
+
+.about .aboutme h2 {
+    font-size: 40px;
+    padding: 20px;
+}
+
+.about .aboutme p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.about .aboutme p span {
+    font-weight: 600;
+    color: #3683f0;
+    font-size: 28px;
+}
+
+.about .about-image img {
+    width: 100%;
+}
+
+/* ============================= media query ====================== ========================== */
+@media (max-width:900px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutme {
+        padding: 50px 40px;
+    }
+
+    .about .aboutme h2 {
+        padding: 20px;
+    }
+}
+
+@media (max-width:500px) {
+    .about .aboutme p {
+        font-size: 18px;
+    }
+}
+
+/* ===============================skills==================== ====================== */
+.skill-body h2,
+.project-body h2,
+.contact-heading h2 {
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.skill-body h2 img {
+    width: 40px;
+}
+
+.skills {
+    margin: 20px;
+}
+
+.skills h3 {
+    margin: 20px;
+    padding: 20px 0;
+    font-size: 25px;
+    color: #3683f0;
+    border-bottom: 2px solid #999;
+}
+
+.skills .item {
+    margin: 30px;
+    text-align: left;
+}
+
+.skills .item img {
+    width: 150px;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.skills .item img:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0px 0px 4px #000);
+}
+
+/* ==============media query =============== */
+@media (max-width:700px) {
+    .skills .item {
+        margin: 20px 10px;
+    }
+
+    .skills .item img {
+        width: 100px;
+        padding: 20px 10px;
+    }
+}
+
+/* ======================================= projects ========= ============= =================================== */
+.project-body {
+    position: relative;
+}
+
+.project i {
+    color: #000;
+}
+
+.projects {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.projects .project {
+    flex-basis: 30%;
+    padding: 10px;
+    border: 1px solid;
+    position: relative;
+}
+
+.projects .project h3 {
+    padding: 20px 10px;
+}
+
+.projects .project h3 span {
+    border-bottom: 2px solid;
+    padding-bottom: 4px;
+}
+
+.projects .project p {
+    padding: 10px 10px 10px 15px;
+}
+
+.projects .project p:nth-last-child(2) {
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.projects .project p i {
+    padding-right: 5px;
+}
+
+.projects .project div.sm-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    padding: 10px;
+    width: 100px;
+    float: right;
+    text-align: center;
+    border: 1px solid;
+}
+
+.project-body .allproject {
+    display: flex;
+    justify-content: right;
+    margin: 30px;
+}
+
+/* =================================== media query ==================== ================================= */
+@media (max-width:1200px) {
+    .projects .project {
+        flex-basis: 44%;
+    }
+}
+
+@media (max-width:700px) {
+    .projects .project {
+        flex-basis: 94%;
+        width: 100%;
+    }
+}
+
+@media (max-width:400px) {
+    .projects {
+        margin-inline: 0;
+    }
+
+    .projects .project {
+        flex-basis: 94%;
+        width: 100%;
+    }
+}
+
+/* ============= contact =============================== =============================== */
+.contact {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f5f5f5;
+}
+
+.contact .contact-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 40px;
+    gap: 50px;
+}
+
+.contact-box .contact1 {
+    padding: 20px;
+    box-shadow: 0px 0px 10px 4px #999;
+    background-color: #fff;
+}
+
+.contact-box .contact1 .contact2 {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    padding: 20px 0;
+    transition: 0.2s;
+}
+
+.contact2:hover {
+    transform: scale(1.1);
+}
+
+.contact2 .icon,
+.contact3 .icon i {
+    text-align: center;
+    font-size: 40px;
+    color: #3683f0;
+}
+
+.contact2 .details {
+    font-size: 25px;
+}
+
+.contact3 .icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact3 span {
+    text-align: center;
+}
+
+.contact3 {
+    text-align: center;
+}
+
+.contact3 img {
+    padding-top: 20px;
+    width: 200px;
+}
+
+/* ================ media query =========================== */
+@media (max-width:700px) {
+    .contact .contact-box {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+@media (max-width:350px) {
+    .contact .contact-box {
+        padding: 10px;
+    }
+
+    .contact-box .contact1 {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    .contact2 .icon {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .contact2 .details {
+        font-size: 16px;
+    }
+}
+
+/* ================================= footer=========================== ============================================= */
+footer {
+    background-color: #000;
+    color: #fff;
+}
+
+footer .social {
+    padding: 30px;
+    text-align: center;
+    white-space: none;
+}
+
+.social i {
+    font-size: 30px;
+    padding: 0px 20px;
+    transition: 0.3s;
+}
+
+.social i.fa-twitter {
+    color: #1da1f2;
+}
+
+.social i.fa-whatsapp {
+    color: #5ffc7b;
+}
+
+.social i.fa-instagram {
+    color: #c13584;
+}
+
+.social i.fa-facebook {
+    color: #0165e1;
+}
+
+.social i:hover {
+    transform: scale(1.5);
+    transition: 0.3s ease-in-out;
+}
+
+.greeting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 30px;
+}
+
+.greeting .text {
+    padding: 10px 60px;
+}
+
+.greeting .text h3 {
+    padding: 10px 0;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.greeting .bottom-links {
+    padding: 10px 60px;
+}
+
+.greeting .bottom-links a {
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.greeting .bottom-links a:hover {
+    border-bottom: 1px solid #fff;
+}
+
+.copyright {
+    font-size: 20px;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    text-align: center;
+}
+
+.copyright i {
+    color: red;
+}
+
+/* ===========media query =========== ========== ========== */
+@media (max-width: 990px) {
+    .greeting .text {
+        padding: 10px 20px;
+    }
+
+    .greeting .bottom-links {
+        padding: 10px 0 10px 10px;
+    }
+
+    .greeting .bottom-links a {
+        padding: 20px 10px 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .greeting {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .social i {
+        font-size: 20px;
+        padding: 0px 10px;
+    }
+
+    .greeting {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+    }
+
+    .greeting .text {
+        padding: 10px 20px;
+    }
+
+    .greeting .text h3 {
+        padding: 10px 0;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .greeting .bottom-links {
+        padding: 20px;
+    }
+
+    .greeting .bottom-links a {
+        padding: 0 10px;
+        font-size: 16px;
+    }
+}
